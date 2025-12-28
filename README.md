@@ -1,69 +1,69 @@
 # win-mediakey-lolbin
 
-Una utilidad nativa de Windows ultra-ligera (~4KB) para controlar la reproducción multimedia (Play/Pause, Next, Prev) desde la línea de comandos.
+An ultra-lightweight Windows native utility (~4KB) to control media playback (Play/Pause, Next, Prev) from the command line.
 
 ---
 
-## Contexto: LOLBin y MITRE ATT&CK
+## Context: LOLBin and MITRE ATT&CK
 
-Este proyecto es también una prueba de concepto educativa sobre **LOLBins** (Living Off the Land Binaries).
+This project is also an educational proof of concept about **LOLBins** (Living Off the Land Binaries).
 
-Está documentado en MITRE ATT&CK como [T1027.004 "Compile After Delivery"](https://attack.mitre.org/techniques/T1027/004/), una técnica de evasión donde el código se entrega como texto plano y se compila in-situ con `csc.exe` (compilador del .NET Framework preinstalado en Windows).
+It is documented in MITRE ATT&CK as [T1027.004 "Compile After Delivery"](https://attack.mitre.org/techniques/T1027/004/), an evasion technique where code is delivered as plain text and compiled in-situ with `csc.exe` (the .NET Framework compiler pre-installed on Windows).
 
-En este caso, el uso es completamente legítimo: una utilidad de 4KB para controlar el reproductor de música.
+In this case, the usage is completely legitimate: a 4KB utility to control the music player.
 
 ---
 
-## Qué hace
+## What it does
 
-Compila un único ejecutable: `MediaKey.exe`
+Compiles a single executable: `MediaKey.exe`
 
-Soporta estos comandos:
+Supports these commands:
 
 - `MediaKey.exe playpause` → Play/Pause
-- `MediaKey.exe next` → Siguiente pista
-- `MediaKey.exe prev` → Pista anterior
+- `MediaKey.exe next` → Next track
+- `MediaKey.exe prev` → Previous track
 
-Funciona en reproductores que respetan media keys (Spotify, YouTube en navegador, VLC, etc.).
+Works on players that respect media keys (Spotify, YouTube in browser, VLC, etc.).
 
 ---
 
-## Requisitos
+## Requirements
 
 - Windows 10/11
-- .NET Framework 4.x (para disponer de `csc.exe`)
-  - Ruta típica (x64):
+- .NET Framework 4.x (to have `csc.exe` available)
+  - Typical path (x64):
     - `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe`
-  - Ruta típica (x86):
+  - Typical path (x86):
     - `C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
 
 ---
 
-## Compilar
+## Compile
 
-1) Clonar/descargar el repo.
-2) Ejecutar:
+1) Clone/download the repo.
+2) Run:
 
 ```bat
 .\compile.bat
 ````
 
-El script:
+The script:
 
-* detecta `csc.exe` (Framework64 → Framework → PATH),
-* crea `.\bin\`,
-* compila como **winexe** (sin ventana de consola),
-* y muestra el tamaño y el uso.
+* detects `csc.exe` (Framework64 → Framework → PATH),
+* creates `.\bin\`,
+* compiles as **winexe** (without console window),
+* and shows the size and usage.
 
-Ejemplo de salida:
+Example output:
 
 ```text
-Compilando bin\MediaKey.exe...
+Compiling bin\MediaKey.exe...
 
-OK: Compilacion exitosa.
-Generado: "C:\Tools\win-mediakey-lolbin\bin\MediaKey.exe" (4096 bytes)
+OK: Compilation successful.
+Generated: "C:\Tools\win-mediakey-lolbin\bin\MediaKey.exe" (4096 bytes)
 
-Uso:
+Usage:
    ...\bin\MediaKey.exe playpause
    ...\bin\MediaKey.exe next
    ...\bin\MediaKey.exe prev
@@ -71,7 +71,7 @@ Uso:
 
 ---
 
-## Uso
+## Usage
 
 ```bat
 .\bin\MediaKey.exe playpause
@@ -79,7 +79,7 @@ Uso:
 .\bin\MediaKey.exe prev
 ```
 
-Ejemplo para Logitech Options+/G Hub (Ring Actions):
+Example for Logitech Options+/G Hub (Ring Actions):
 
 * Action 1: `C:\...\bin\MediaKey.exe playpause`
 * Action 2: `C:\...\bin\MediaKey.exe next`
@@ -87,18 +87,18 @@ Ejemplo para Logitech Options+/G Hub (Ring Actions):
 
 ---
 
-## Cómo funciona
+## How it works
 
-El programa llama a `user32.dll` y simula el evento de teclas multimedia con `keybd_event` usando los VK:
+The program calls `user32.dll` and simulates the media key event with `keybd_event` using the VKs:
 
 * `0xB3` → VK_MEDIA_PLAY_PAUSE
 * `0xB0` → VK_MEDIA_NEXT_TRACK
 * `0xB1` → VK_MEDIA_PREV_TRACK
 
-Incluye pequeños `Sleep()` para evitar que el tap sea demasiado corto y para asegurar que Windows procese el evento antes de que termine el proceso.
+It includes small `Sleep()` calls to prevent the tap from being too short and to ensure Windows processes the event before the process ends.
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto es de dominio público. Siéntete libre de usarlo, modificarlo y aprender de él.
+This project is public domain. Feel free to use it, modify it, and learn from it.
