@@ -1,8 +1,8 @@
 @echo off
 setlocal EnableExtensions
 
-set "SRC=MediaKey.cs"
-set "OUTDIR=bin"
+set "SRC=%~dp0..\src\MediaKey.cs"
+set "OUTDIR=%~dp0..\bin"
 set "OUT=%OUTDIR%\MediaKey.exe"
 set "CSC_FLAGS=/nologo /optimize+ /debug- /target:winexe /platform:anycpu"
 

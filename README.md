@@ -55,7 +55,7 @@ Works on players that respect media keys (Spotify, YouTube in browser, VLC, etc.
 2) Run:
 
 ```bat
-.\compile.bat
+.\scripts\compile.bat
 ````
 
 The script:
